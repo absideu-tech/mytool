@@ -2,6 +2,11 @@ name: Build EXE
 
 on:
   workflow_dispatch:
+    inputs:
+      filename:
+        description: '변환할 파이썬 파일명 (확장자 포함)'
+        required: true
+        default: 'main.py'
 
 jobs:
   build:
@@ -23,11 +28,10 @@ jobs:
 
     - name: EXE 파일 빌드
       run: |
-        pyinstaller --onefile --noconsole time2.py
-        # 콘솔창(검은 창)이 떠야 하는 프로그램이라면 위 줄의 --noconsole 을 지우세요.
+        pyinstaller --onefile --noconsole ${{ github.event.inputs.filename }}
 
     - name: 결과물 업로드
       uses: actions/upload-artifact@v4
       with:
-        name: my-windows-app
+        name: build-result
         path: dist/*.exe
