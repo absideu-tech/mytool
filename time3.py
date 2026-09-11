@@ -10,7 +10,7 @@ class TimeMasterApp:
 
         # 스타일 설정
         self.style = ttk.Style()
-        self.style.configure("Big.TButton", font=("Malgun Gothic", 12, "bold"), padding=20)
+        self.style.configure("Big.TButton", font=("Malgun Gothic", 12, "bold"), padding=20, justify="center")
         self.style.configure("Home.TButton", font=("Malgun Gothic", 10))
 
         # 메인 컨테이너 (각 화면이 들어갈 프레임들)
@@ -38,11 +38,11 @@ class TimeMasterApp:
         label.pack(pady=35)
 
         btn_calc = ttk.Button(self.main_frame, text="단순 계산\n(시작~종료 시간 입력)", 
-                              style="Big.TButton", justify="center", command=lambda: self.show_frame(self.calc_frame))
+                              style="Big.TButton", command=lambda: self.show_frame(self.calc_frame))
         btn_calc.pack(pady=10, padx=50, fill="x")
 
         btn_check = ttk.Button(self.main_frame, text="시간 체크\n(종료시간 도출)", 
-                               style="Big.TButton", justify="center", command=lambda: self.show_frame(self.check_frame))
+                               style="Big.TButton", command=lambda: self.show_frame(self.check_frame))
         btn_check.pack(pady=10, padx=50, fill="x")
 
     # --- 헬퍼 함수: 입력 세트 생성 ---
