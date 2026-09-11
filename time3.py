@@ -5,7 +5,7 @@ class TimeMasterApp:
     def __init__(self, root):
         self.root = root
         self.root.title("시간 관리 프로그램")
-        self.root.geometry("400x500")
+        self.root.geometry("400x400")
         self.root.resizable(False, False)
 
         # 스타일 설정
@@ -35,7 +35,7 @@ class TimeMasterApp:
     # --- 1. 메인 화면 ---
     def setup_main_screen(self):
         label = tk.Label(self.main_frame, text="원하는 기능을 선택하세요", font=("Malgun Gothic", 16, "bold"))
-        label.pack(pady=50)
+        label.pack(pady=35)
 
         btn_calc = ttk.Button(self.main_frame, text="단순 계산\n(시작~종료 시간 계산)", 
                               style="Big.TButton", command=lambda: self.show_frame(self.calc_frame))
