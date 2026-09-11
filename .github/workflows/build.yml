@@ -23,7 +23,7 @@ jobs:
 
     - name: EXE 파일 빌드
       run: |
-        pyinstaller --onefile --noconsole ai_studio_code.py
+        pyinstaller --onefile --noconsole time2.py
         # 콘솔창(검은 창)이 떠야 하는 프로그램이라면 위 줄의 --noconsole 을 지우세요.
 
     - name: 결과물 업로드
