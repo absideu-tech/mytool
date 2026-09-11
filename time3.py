@@ -37,12 +37,12 @@ class TimeMasterApp:
         label = tk.Label(self.main_frame, text="원하는 기능을 선택하세요", font=("Malgun Gothic", 16, "bold"))
         label.pack(pady=35)
 
-        btn_calc = ttk.Button(self.main_frame, text="단순 계산\n(시작~종료 시간 계산)", 
-                              style="Big.TButton", command=lambda: self.show_frame(self.calc_frame))
+        btn_calc = ttk.Button(self.main_frame, text="단순 계산\n(시작~종료 시간 입력)", 
+                              style="Big.TButton", justify="center", command=lambda: self.show_frame(self.calc_frame))
         btn_calc.pack(pady=10, padx=50, fill="x")
 
-        btn_check = ttk.Button(self.main_frame, text="시간 체크\n(목표 달성 종료시간 도출)", 
-                               style="Big.TButton", command=lambda: self.show_frame(self.check_frame))
+        btn_check = ttk.Button(self.main_frame, text="시간 체크\n(종료시간 도출)", 
+                               style="Big.TButton", justify="center", command=lambda: self.show_frame(self.check_frame))
         btn_check.pack(pady=10, padx=50, fill="x")
 
     # --- 헬퍼 함수: 입력 세트 생성 ---
@@ -93,10 +93,10 @@ class TimeMasterApp:
         self.s2_h, self.s2_m = self.create_input_set(self.check_frame, "시작 시간")
         self.ex2_h, self.ex2_m = self.create_input_set(self.check_frame, "제외 시간")
 
-        btn_run = ttk.Button(self.check_frame, text="필요 종료 시간 계산", command=self.calculate_end_time)
+        btn_run = ttk.Button(self.check_frame, text="계산하기", command=self.calculate_end_time)
         btn_run.pack(pady=30)
 
-        self.res2_label = tk.Label(self.check_frame, text="결과: 0시간 0분", 
+        self.res2_label = tk.Label(self.check_frame, text="결과: 0시 0분", 
                                    font=("Malgun Gothic", 15, "bold"), fg="green")
         self.res2_label.pack()
 
