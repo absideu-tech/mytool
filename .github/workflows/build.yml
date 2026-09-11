@@ -6,7 +6,7 @@ on:
       filename:
         description: '변환할 파이썬 파일명 (확장자 포함)'
         required: true
-        default: 'main.py'
+        default: 'FILE_NAME.py'
 
 jobs:
   build:
