@@ -38,7 +38,7 @@ class TimeMasterApp:
 
         # 내부 순백색 카드 영역
         inner_frame = tk.Frame(border_frame, bg="#ffffff", bd=0)
-        inner_frame.pack(padx=1, pady=1, fill="both", expand=True, ipady=16)
+        inner_frame.pack(padx=1, pady=1, fill="both", expand=True, ipady=True)
 
         title_lbl = tk.Label(inner_frame, text=title_text, font=("Malgun Gothic", 13, "bold"), bg="#ffffff", fg="#111111")
         title_lbl.pack(pady=(0, 3))
