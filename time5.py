@@ -67,13 +67,10 @@ class TimeMasterApp:
             w.bind("<Leave>", on_leave)
 
     def setup_main_screen(self):
-        label = tk.Label(self.main_frame, text="원하는 기능을 선택하세요", font=("Malgun Gothic", 16, "bold"))
-        label.pack(pady=40)
-
-        # 좌우 버튼을 나란히 감싸는 프레임
-        btn_container = tk.Frame(self.main_frame)
-        btn_container.pack(fill="x", padx=30, pady=10)
-
+        # 문구 라벨 제거 및 위아래 중앙 정렬 적용
+            btn_container = tk.Frame(self.main_frame)
+            btn_container.pack(expand=True, fill="x", padx=30)
+            
         self.create_custom_button(
             btn_container, 
             "단순 계산", 
