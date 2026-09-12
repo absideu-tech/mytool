@@ -39,12 +39,12 @@ class TimeMasterApp:
         inner_frame = tk.Frame(border_frame, bg="#ffffff", bd=0)
         inner_frame.pack(padx=1, pady=1, fill="both", expand=True)
 
-        # 세로 여백을 상하 25px로 주어 듬직한 정사각형 카드 비율 형성
+        # 세로 여백을 상하 18px로 주어 듬직한 정사각형 카드 비율 형성
         title_lbl = tk.Label(inner_frame, text=title_text, font=("Malgun Gothic", 13, "bold"), bg="#ffffff", fg="#111111")
-        title_lbl.pack(pady=(25, 4))
+        title_lbl.pack(pady=(18, 2))
 
         sub_lbl = tk.Label(inner_frame, text=sub_text, font=("Malgun Gothic", 10, "normal"), bg="#ffffff", fg="#555555")
-        sub_lbl.pack(pady=(0, 25))
+        sub_lbl.pack(pady=(0, 18))
 
         widgets = [border_frame, inner_frame, title_lbl, sub_lbl]
 
@@ -85,7 +85,7 @@ class TimeMasterApp:
     # --- 헬퍼 함수: 입력 세트 생성 ---
     def create_input_set(self, parent, label_text):
         frame = tk.Frame(parent)
-        frame.pack(pady=6)
+        frame.pack(pady=4)
 
         tk.Label(frame, text=label_text, font=("Malgun Gothic", 11), width=9, anchor="w").pack(side="left")
         
@@ -105,7 +105,7 @@ class TimeMasterApp:
                               command=lambda: self.show_frame(self.main_frame))
         btn_home.pack(anchor="nw", padx=10, pady=10)
 
-        tk.Label(self.calc_frame, text="단순 시간 계산", font=("Malgun Gothic", 14, "bold")).pack(pady=10)
+        tk.Label(self.calc_frame, text="단순 계산", font=("Malgun Gothic", 14, "bold")).pack(pady=10)
 
         self.s1_h, self.s1_m = self.create_input_set(self.calc_frame, "시작 시간")
         self.e1_h, self.e1_m = self.create_input_set(self.calc_frame, "종료 시간")
@@ -124,7 +124,7 @@ class TimeMasterApp:
                               command=lambda: self.show_frame(self.main_frame))
         btn_home.pack(anchor="nw", padx=10, pady=10)
 
-        tk.Label(self.check_frame, text="시간 달성 체크", font=("Malgun Gothic", 14, "bold")).pack(pady=10)
+        tk.Label(self.check_frame, text="시간 체크", font=("Malgun Gothic", 14, "bold")).pack(pady=10)
 
         # 순서: 목표 시간 -> 시작 시간 -> 제외 시간
         self.t2_h, self.t2_m = self.create_input_set(self.check_frame, "목표 시간")
