@@ -40,7 +40,7 @@ class TimeMasterApp:
         title_lbl.pack(pady=(0, 3))
 
         # 하단 괄호 글씨 (9.5pt, Normal, 살짝 연한 톤)
-        sub_lbl = tk.Label(btn_frame, text=sub_text, font=("Malgun Gothic", 9.5, "normal"), fg="#555555", bg="#f8f9fa")
+        sub_lbl = tk.Label(btn_frame, text=sub_text, font=("Malgun Gothic", 10, "normal"), fg="#555555", bg="#f8f9fa")
         sub_lbl.pack()
 
         widgets = [btn_frame, title_lbl, sub_lbl]
