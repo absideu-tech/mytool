@@ -5,7 +5,7 @@ class TimeMasterApp:
     def __init__(self, root):
         self.root = root
         self.root.title("시간 관리 프로그램")
-        self.root.geometry("440x480")
+        self.root.geometry("400x400")
         self.root.resizable(False, False)
 
         # 스타일 설정
@@ -35,11 +35,9 @@ class TimeMasterApp:
         btn_frame = tk.Frame(parent, bg="#f8f9fa", relief="groove", bd=1, cursor="hand2")
         btn_frame.pack(pady=10, padx=50, fill="x", ipady=12)
 
-        # 상단 굵은 글씨 (13pt, Bold)
         title_lbl = tk.Label(btn_frame, text=title_text, font=("Malgun Gothic", 13, "bold"), bg="#f8f9fa")
         title_lbl.pack(pady=(0, 3))
 
-        # 하단 괄호 글씨 (9.5pt, Normal, 살짝 연한 톤)
         sub_lbl = tk.Label(btn_frame, text=sub_text, font=("Malgun Gothic", 10, "normal"), fg="#555555", bg="#f8f9fa")
         sub_lbl.pack()
 
@@ -65,7 +63,7 @@ class TimeMasterApp:
         self.create_custom_button(
             self.main_frame, 
             "단순 계산", 
-            "(시작~종료)", 
+            "(시작~종료 입력)", 
             lambda: self.show_frame(self.calc_frame)
         )
         self.create_custom_button(
@@ -84,7 +82,7 @@ class TimeMasterApp:
         if is_time_point:
             ampm_cb = ttk.Combobox(frame, values=["오전", "오후"], width=4, state="readonly")
             ampm_cb.set("오전")
-            ampm_cb.pack(side="left", padx=(0, 4))
+            # 24시 형식이 기본값이므로 초기에 pack하지 않음
         
         tk.Label(frame, text=label_text, font=("Malgun Gothic", 11), width=9, anchor="w").pack(side="left")
         
@@ -105,7 +103,8 @@ class TimeMasterApp:
                 if is_24h.get():
                     cb.pack_forget()
                 else:
-                    cb.pack(side="left", padx=(0, 4), before=cb.master.winfo_children()[1])
+                    # 12시 형식으로 전환 시 라벨 앞에 배치
+                    cb.pack(side="left", padx=(0, 4), before=cb.master.winfo_children()[0])
 
     # --- 2. 단순 계산 화면 ---
     def setup_calc_screen(self):
@@ -115,7 +114,8 @@ class TimeMasterApp:
         btn_home = ttk.Button(top_frame, text="🏠 홈으로", command=lambda: self.show_frame(self.main_frame))
         btn_home.pack(side="left")
 
-        self.calc_is_24h = tk.BooleanVar(value=False)
+        # 24시 형식을 기본값(True)으로 설정
+        self.calc_is_24h = tk.BooleanVar(value=True)
         chk_24h = ttk.Checkbutton(top_frame, text="24시 형식 사용", variable=self.calc_is_24h,
                                   command=lambda: self.toggle_mode(self.calc_is_24h, [self.s1_ampm, self.e1_ampm]))
         chk_24h.pack(side="right", padx=5)
@@ -141,7 +141,8 @@ class TimeMasterApp:
         btn_home = ttk.Button(top_frame, text="🏠 홈으로", command=lambda: self.show_frame(self.main_frame))
         btn_home.pack(side="left")
 
-        self.check_is_24h = tk.BooleanVar(value=False)
+        # 24시 형식을 기본값(True)으로 설정
+        self.check_is_24h = tk.BooleanVar(value=True)
         chk_24h = ttk.Checkbutton(top_frame, text="24시 형식 사용", variable=self.check_is_24h,
                                   command=lambda: self.toggle_mode(self.check_is_24h, [self.s2_ampm]))
         chk_24h.pack(side="right", padx=5)
@@ -205,6 +206,7 @@ class TimeMasterApp:
             total_h = final_min // 60
             res_m = final_min % 60
 
+            # 24시 형식 체크 여부와 관계없이 오전/오후 고정 표기
             ampm_str = "오전" if total_h < 12 else "오후"
             res_h = total_h % 12
             if res_h == 0:
