@@ -5,7 +5,7 @@ class TimeMasterApp:
     def __init__(self, root):
         self.root = root
         self.root.title("시간 관리 프로그램")
-        self.root.geometry("450x400")
+        self.root.geometry("430x380")
         self.root.resizable(False, False)
 
         # ttk 스타일 설정
@@ -85,7 +85,7 @@ class TimeMasterApp:
     # --- 헬퍼 함수: 입력 세트 생성 ---
     def create_input_set(self, parent, label_text):
         frame = tk.Frame(parent)
-        frame.pack(pady=8)
+        frame.pack(pady=6)
 
         tk.Label(frame, text=label_text, font=("Malgun Gothic", 11), width=9, anchor="w").pack(side="left")
         
@@ -112,7 +112,7 @@ class TimeMasterApp:
         self.ex1_h, self.ex1_m = self.create_input_set(self.calc_frame, "제외 시간")
 
         btn_run = ttk.Button(self.calc_frame, text="계산하기", command=self.calculate_duration)
-        btn_run.pack(pady=25)
+        btn_run.pack(pady=15)
 
         self.res1_label = tk.Label(self.calc_frame, text="결과: 0시간 0분", 
                                    font=("Malgun Gothic", 15, "bold"), fg="blue")
@@ -132,7 +132,7 @@ class TimeMasterApp:
         self.ex2_h, self.ex2_m = self.create_input_set(self.check_frame, "제외 시간")
 
         btn_run = ttk.Button(self.check_frame, text="계산하기", command=self.calculate_end_time)
-        btn_run.pack(pady=25)
+        btn_run.pack(pady=15)
 
         self.res2_label = tk.Label(self.check_frame, text="결과: 오전 0시 0분", 
                                    font=("Malgun Gothic", 15, "bold"), fg="green")
