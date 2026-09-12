@@ -5,8 +5,7 @@ class TimeMasterApp:
     def __init__(self, root):
         self.root = root
         self.root.title("시간 관리 프로그램")
-        # 좌우 카드 배치를 고려해 가로를 480으로 확장
-        self.root.geometry("480x420")
+        self.root.geometry("450x400")
         self.root.resizable(False, False)
 
         # ttk 스타일 설정
@@ -40,12 +39,12 @@ class TimeMasterApp:
         inner_frame = tk.Frame(border_frame, bg="#ffffff", bd=0)
         inner_frame.pack(padx=1, pady=1, fill="both", expand=True)
 
-        # 세로 여백을 상하 28px로 주어 듬직한 정사각형 카드 비율 형성
+        # 세로 여백을 상하 25px로 주어 듬직한 정사각형 카드 비율 형성
         title_lbl = tk.Label(inner_frame, text=title_text, font=("Malgun Gothic", 13, "bold"), bg="#ffffff", fg="#111111")
-        title_lbl.pack(pady=(28, 4))
+        title_lbl.pack(pady=(25, 4))
 
         sub_lbl = tk.Label(inner_frame, text=sub_text, font=("Malgun Gothic", 10, "normal"), bg="#ffffff", fg="#555555")
-        sub_lbl.pack(pady=(0, 28))
+        sub_lbl.pack(pady=(0, 25))
 
         widgets = [border_frame, inner_frame, title_lbl, sub_lbl]
 
@@ -67,10 +66,10 @@ class TimeMasterApp:
             w.bind("<Leave>", on_leave)
 
     def setup_main_screen(self):
-        # 문구 라벨 제거 및 위아래 중앙 정렬 적용
+        # 문구 라벨 제거 및 위아래 중앙 정렬 적용, padx 커지면 너비 좁아짐
             btn_container = tk.Frame(self.main_frame)
-            btn_container.pack(expand=True, fill="x", padx=30)
-            
+            btn_container.pack(expand=True, fill="x", padx=40)
+
         self.create_custom_button(
             btn_container, 
             "단순 계산", 
