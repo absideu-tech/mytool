@@ -5,7 +5,7 @@ class TimeMasterApp:
     def __init__(self, root):
         self.root = root
         self.root.title("시간 관리 프로그램")
-        self.root.geometry("430x380")
+        self.root.geometry("400x320")
         self.root.resizable(False, False)
 
         # ttk 스타일 설정
