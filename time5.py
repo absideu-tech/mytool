@@ -67,8 +67,8 @@ class TimeMasterApp:
 
     def setup_main_screen(self):
         # 문구 라벨 제거 및 위아래 중앙 정렬 적용, padx 커지면 너비 좁아짐
-            btn_container = tk.Frame(self.main_frame)
-            btn_container.pack(expand=True, fill="x", padx=40)
+        btn_container = tk.Frame(self.main_frame)
+        btn_container.pack(expand=True, fill="x", padx=40)
         self.create_custom_button(
             btn_container, 
             "단순 계산", 
