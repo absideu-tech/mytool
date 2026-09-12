@@ -34,11 +34,11 @@ class TimeMasterApp:
     def create_custom_button(self, parent, title_text, sub_text, command):
         # 1px 연회색 외곽 테두리
         border_frame = tk.Frame(parent, bg="#d0d0d0", bd=0, cursor="hand2")
-        border_frame.pack(pady=10, padx=50, fill="x")
+        border_frame.pack(pady=12, padx=35, fill="x")
 
         # 내부 순백색 카드 영역
         inner_frame = tk.Frame(border_frame, bg="#ffffff", bd=0)
-        inner_frame.pack(padx=1, pady=1, fill="both", expand=True, ipady=True)
+        inner_frame.pack(padx=1, pady=24, fill="both", expand=True, ipady=True)
 
         title_lbl = tk.Label(inner_frame, text=title_text, font=("Malgun Gothic", 13, "bold"), bg="#ffffff", fg="#111111")
         title_lbl.pack(pady=(0, 3))
