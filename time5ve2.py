@@ -5,7 +5,18 @@ class TimeMasterApp:
     def __init__(self, root):
         self.root = root
         self.root.title("시간 관리 프로그램")
-        self.root.geometry("400x320")
+        # 1. 창 크기 정의
+        win_w = 400
+        win_h = 320
+        
+        # 2. 화면 해상도 확인 및 중앙 좌표 계산
+        screen_w = self.root.winfo_screenwidth()
+        screen_h = self.root.winfo_screenheight()
+        pos_x = (screen_w - win_w) // 2
+        pos_y = (screen_h - win_h) // 2
+        
+        # 3. 창 크기 및 위치 한 번에 지정
+        self.root.geometry(f"{win_w}x{win_h}+{pos_x}+{pos_y}")
         self.root.resizable(False, False)
 
         # ttk 스타일 설정
